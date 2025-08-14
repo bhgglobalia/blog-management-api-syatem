@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Post</title>
+</head>
+<body>
+  <h1>Create a New Post</h1>
+  <form method="POST" action="/posts">
+    <label>Title: <input type="text" name="title" required></label><br>
+    <label>Content:<br>
+      <textarea name="content" required></textarea>
+    </label><br>
+    <label>Tags (comma separated): <input type="text" name="tags"></label><br>
+    <button type="submit">Create</button>
+  </form>
+</body>
+</html>

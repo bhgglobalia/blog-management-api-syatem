@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manage Users</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Manage Users (Admin Only)</h1>
+  <nav>
+    <a href="/">Home</a> |
+    <a href="/posts">View Posts</a>
+  </nav>
+
+  <h2>All Users</h2>
+  <table border="1" cellpadding="8">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+    </tr>
+    <% users.forEach(user => { %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+      </tr>
+    <% }) %>
+  </table>
+</body>
+</html>

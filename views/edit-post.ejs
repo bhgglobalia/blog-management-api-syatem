@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Post</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+            margin: 0
+        }
+
+        form {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+            width: 420px
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #ffc107;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer
+        }
+
+        button:hover {
+            background: #e0a800
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 8px
+        }
+    </style>
+</head>
+
+<body>
+    <form method="POST" action="/posts/edit/<%= post._id %>">
+  <label>Title: <input type="text" name="title" value="<%= post.title %>" required></label><br>
+  <label>Content:<br>
+    <textarea name="content" required><%= post.content %></textarea>
+  </label><br>
+  <label>Tags (comma separated): <input type="text" name="tags" value="<%= post.tags.join(', ') %>"></label><br>
+  <button type="submit">Update</button>
+</form>
+
+</body>
+
+</html>

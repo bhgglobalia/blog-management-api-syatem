@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create New Post</title>
+    
+</head>
+
+<body>
+    <form action="/posts" method="post">
+        <h2>Create New Post</h2>
+        <label>Title:</label>
+        <input type="text" name="title" required>
+        <label>Content:</label>
+        <textarea name="content" rows="6" required></textarea>
+        <label>Tags (comma separated):</label>
+        <input type="text" name="tags" placeholder="news, tech, life">
+        <label>Author:</label>
+        <input type="text" name="author" required>
+        <button type="submit">Create Post</button>
+        <a href="/posts">Back to Posts</a>
+    </form>
+</body>
+
+</html>

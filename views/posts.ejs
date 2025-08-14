@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>All Blog Posts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 30px;
+            margin: 0
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px
+        }
+
+        .post {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .1)
+        }
+
+        .post h2 {
+            margin: 0 0 10px;
+            color: #444
+        }
+
+        .tags {
+            font-size: 14px;
+            color: #777
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 5px 5px 0 0;
+            padding: 8px 12px;
+            color: #fff;
+            border-radius: 6px;
+            text-decoration: none
+        }
+
+        .btn-edit {
+            background: #ffc107
+        }
+
+        .btn-delete {
+            background: #dc3545
+        }
+
+        .btn-create {
+            background: #28a745;
+            margin-bottom: 20px
+        }
+
+        .nav {
+            margin-bottom: 20px;
+            text-align: center
+        }
+
+        .nav a {
+            margin: 0 6px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="/">Home</a>
+        <a href="/posts/new" class="btn btn-create">+ Create New Post</a>
+    </div>
+    <h1>All Blog Posts</h1>
+
+    <% if (!posts || posts.length===0) { %>
+        <p>No posts available.</p>
+        <% } else { %>
+            <% posts.forEach(post=> { %>
+                <div class="post">
+                    <h2>
+                        <%= post.title %>
+                    </h2>
+                    <p>
+                        <%= post.content %>
+                    </p>
+                    <p class="tags">Tags: <%= (post.tags || []).join(', ') %></p>
+        <p><small>
+          Author: <%= post.author %>
+          <% if (post.createdAt) { %> | Created: <%= new Date(post.createdAt).toLocaleString() %> <% } %>
+          <% if (post.updatedAt) { %> | Updated: <%= new Date(post.updatedAt).toLocaleString() %> <% } %>
+        </small></p>
+        <a class="btn btn-edit" href="/posts/edit/<%= post._id %>">Edit</a>
+        <a class="btn btn-delete" href="/posts/delete/<%= post._id %>" onclick="return confirm(' Delete this post?');">
+                            Delete</a>
+                </div>
+                <% }) %>
+                    <% } %>
+</body>
+
+</html>
